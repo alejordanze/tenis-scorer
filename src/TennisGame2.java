@@ -3,7 +3,10 @@ public class TennisGame2 implements TennisGame
 {
     public int player1Points = 0;
     public int player2Points = 0;
-    
+    final int _LOVE = 0;
+    final int _FIFTEEN = 1;
+    final int _THIRTY = 2;
+    final int _FORTY = 3;
     private String player1Name;
     private String player2Name;
 
@@ -46,13 +49,13 @@ public class TennisGame2 implements TennisGame
 	private String getLiteral(int playerPoints) {
 		String result = "";
 		
-		if (playerPoints == 0)
+		if (playerPoints == _LOVE)
 			result = "Love";
-		if (playerPoints == 1)
+		if (playerPoints == _FIFTEEN)
 			result = "Fifteen";
-		if (playerPoints == 2)
+		if (playerPoints == _THIRTY)
 			result = "Thirty";
-		if (playerPoints == 3)
+		if (playerPoints == _FORTY)
 			result = "Forty";
 		return result;
 	}
