@@ -15,7 +15,11 @@ public class TennisGame2 implements TennisGame
     public String getScore(){
         String score = "";
         score = normal();
-        score = tie(score);
+        if (isTie())
+        {
+			score = getLiteral(player1Points);
+            score += "-All";
+        }
         score = deuce(score);
         
         score = advantage(score);
@@ -76,13 +80,8 @@ public class TennisGame2 implements TennisGame
 		return result;
 	}
 
-	private String tie(String score) {
-		if (player1Points == player2Points && player1Points < 4)
-        {
-			score = getLiteral(player1Points);
-            score += "-All";
-        }
-		return score;
+	private boolean isTie() {
+		return player1Points == player2Points && player1Points < 4;
 	}
 
 	private String deuce(String score) {
