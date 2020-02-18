@@ -18,16 +18,10 @@ public class TennisGame2 implements TennisGame
         String score = "";
         score = tie(score);
         score = deuce(score);
-        
         score = normal(score);
-        score = normal1(score);
-        
-        score = normal2(score);
-        score = normal3(score);
-        
         score = advantage(score);
-        
         score = win(score);
+        
         return score;
     }
 
@@ -56,35 +50,8 @@ public class TennisGame2 implements TennisGame
 		return score;
 	}
 
-	private String normal3(String score) {
-		int p2point2 = player2Points;
-		int p1point2 = player1Points;
-		if (p2point2>p1point2 && p2point2 < 4)
-        {
-			score = getLiteralScore(p1point2, p2point2);
-        }
-		return score;
-	}
-
-	private String normal2(String score) {
-		if (player1Points>player2Points && player1Points < 4)
-        {
-			score = getLiteralScore(player1Points, player2Points);
-        }
-		return score;
-	}
-
-	private String normal1(String score) {
-		if (player2Points > 0 && player1Points==0)
-        {
-			score = getLiteralScore(player1Points, player2Points);
-        }
-		return score;
-	}
-
 	private String normal(String score) {
-		int p1point2 = player1Points;
-		if (p1point2 > 0 && player2Points==0)
+		if (player1Points != player2Points)
         {
 			score = getLiteralScore(player1Points, player2Points);
         }
@@ -99,29 +66,24 @@ public class TennisGame2 implements TennisGame
 		return score;
 	}
 
-	private String getLiteral(int p1point2) {
-		String playerRes = "";
+	private String getLiteral(int playerPoints) {
+		String result = "";
 		
-		if (p1point2==0)
-			playerRes = "Love";
-		if (p1point2==1)
-			playerRes = "Fifteen";
-		if (p1point2==2)
-			playerRes = "Thirty";
-		if (p1point2==3)
-			playerRes = "Forty";
-		return playerRes;
+		if (playerPoints == 0)
+			result = "Love";
+		if (playerPoints == 1)
+			result = "Fifteen";
+		if (playerPoints == 2)
+			result = "Thirty";
+		if (playerPoints == 3)
+			result = "Forty";
+		return result;
 	}
 
 	private String tie(String score) {
 		if (player1Points == player2Points && player1Points < 4)
         {
-            if (player1Points==0)
-                score = "Love";
-            if (player1Points==1)
-                score = "Fifteen";
-            if (player1Points==2)
-                score = "Thirty";
+			score = getLiteral(player1Points);
             score += "-All";
         }
 		return score;
