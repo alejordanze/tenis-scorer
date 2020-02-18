@@ -26,8 +26,7 @@ public class TennisGame2 implements TennisGame
                 score = "Thirty";
             score += "-All";
         }
-        if (P1point==P2point && P1point>=3)
-            score = "Deuce";
+        score = deuce(score);
         
         if (P1point > 0 && P2point==0)
         {
@@ -99,6 +98,12 @@ public class TennisGame2 implements TennisGame
         }
         return score;
     }
+
+	private String deuce(String score) {
+		if (P1point==P2point && P1point>=3)
+            score = "Deuce";
+		return score;
+	}
     
     public void SetP1Score(int number){
         
