@@ -20,8 +20,10 @@ public class TennisGame2 implements TennisGame
 			score = getLiteral(player1Points) + "-All";
         if (isDeuce())
             score = "Deuce";
-        
-        score = advantage(score);
+    	if (isAdvantage(player1Points, player2Points))
+            score = "Advantage player1";
+        if (isAdvantage(player2Points, player1Points))
+            score = "Advantage player2";
         score = win(score);
         
         return score;
@@ -43,17 +45,8 @@ public class TennisGame2 implements TennisGame
 		return score;
 	}
 
-	private String advantage(String score) {
-		if (player1Points > player2Points && player2Points >= 3)
-        {
-            score = "Advantage player1";
-        }
-        
-        if (player2Points > player1Points && player1Points >= 3)
-        {
-            score = "Advantage player2";
-        }
-		return score;
+	private boolean isAdvantage(int player1Points, int player2Points) {
+		return player1Points > player2Points && player2Points >= 3;
 	}
 	
 	private String getLiteralScore(int p1point2, int p2point2) {
