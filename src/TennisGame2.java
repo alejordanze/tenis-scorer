@@ -12,47 +12,37 @@ public class TennisGame2 implements TennisGame
         this.player2Name = player2Name;
     }
 
-    public String getScore(){
-        String score = "";
+    public String getLiteralScore(){
+        String literalScore = "";
     	if (isNormal())
-			score = getLiteralScore(player1Points, player2Points);
+			literalScore = getLiteral(player1Points) + "-" + getLiteral(player2Points);
         if (isTie())
-			score = getLiteral(player1Points) + "-All";
+			literalScore = getLiteral(player1Points) + "-All";
         if (isDeuce())
-            score = "Deuce";
+            literalScore = "Deuce";
     	if (isAdvantage(player1Points, player2Points))
-            score = "Advantage player1";
+            literalScore = "Advantage player1";
         if (isAdvantage(player2Points, player1Points))
-            score = "Advantage player2";
-        score = win(score);
-        
-        return score;
+            literalScore = "Advantage player2";
+    	if (isWinner(player1Points,player2Points))
+            literalScore = "Win for player1";
+        if (isWinner(player2Points,player1Points))
+            literalScore = "Win for player2";
+        return literalScore;
     }
 
 	private boolean isNormal() {
 		return player1Points != player2Points;
 	}
 
-	private String win(String score) {
-		if (player1Points>=4 && player2Points>=0 && (player1Points-player2Points)>=2)
-        {
-            score = "Win for player1";
-        }
-        if (player2Points>=4 && player1Points>=0 && (player2Points-player1Points)>=2)
-        {
-            score = "Win for player2";
-        }
-		return score;
+	private boolean isWinner(int player1Points, int player2Points) {
+		return player1Points>=4 && player2Points>=0 && (player1Points-player2Points)>=2;
 	}
 
 	private boolean isAdvantage(int player1Points, int player2Points) {
 		return player1Points > player2Points && player2Points >= 3;
 	}
 	
-	private String getLiteralScore(int p1point2, int p2point2) {
-		return getLiteral(p1point2) + "-" + getLiteral(p2point2);
-	}
-
 	private String getLiteral(int playerPoints) {
 		String result = "";
 		
