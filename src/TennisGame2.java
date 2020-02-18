@@ -25,15 +25,7 @@ public class TennisGame2 implements TennisGame
         score = normal2(score);
         score = normal3(score);
         
-        if (P1point > P2point && P2point >= 3)
-        {
-            score = "Advantage player1";
-        }
-        
-        if (P2point > P1point && P1point >= 3)
-        {
-            score = "Advantage player2";
-        }
+        score = advantage(score);
         
         if (P1point>=4 && P2point>=0 && (P1point-P2point)>=2)
         {
@@ -45,6 +37,19 @@ public class TennisGame2 implements TennisGame
         }
         return score;
     }
+
+	private String advantage(String score) {
+		if (P1point > P2point && P2point >= 3)
+        {
+            score = "Advantage player1";
+        }
+        
+        if (P2point > P1point && P1point >= 3)
+        {
+            score = "Advantage player2";
+        }
+		return score;
+	}
 
 	private String normal3(String score) {
 		if (P2point>P1point && P2point < 4)
