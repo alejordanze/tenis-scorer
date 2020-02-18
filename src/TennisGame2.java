@@ -57,10 +57,12 @@ public class TennisGame2 implements TennisGame
 	}
 
 	private String normal3(String score) {
-		if (P2point>P1point && P2point < 4)
+		int p2point2 = P2point;
+		int p1point2 = P1point;
+		if (p2point2>p1point2 && p2point2 < 4)
         {
-			P2res = getLiteral(P2point);
-			P1res = getLiteral(P1point);
+			P2res = getLiteral(p2point2);
+			P1res = getLiteral(p1point2);
             score = P1res + "-" + P2res;
         }
 		return score;
