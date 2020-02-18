@@ -4,8 +4,6 @@ public class TennisGame2 implements TennisGame
     public int player1Points = 0;
     public int player2Points = 0;
     
-    public String player1LiteralPoints = "";
-    public String player2LiteralPoints = "";
     private String player1Name;
     private String player2Name;
 
@@ -60,9 +58,7 @@ public class TennisGame2 implements TennisGame
 	
 	private String getLiteralScore(int p1point2, int p2point2) {
 		String score;
-		player2LiteralPoints = getLiteral(p2point2);
-		player1LiteralPoints = getLiteral(p1point2);
-		score = player1LiteralPoints + "-" + player2LiteralPoints;
+		score = getLiteral(p1point2) + "-" + getLiteral(p2point2);
 		return score;
 	}
 
