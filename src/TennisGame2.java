@@ -61,16 +61,8 @@ public class TennisGame2 implements TennisGame
 		int p1point2 = P1point;
 		if (p2point2>p1point2 && p2point2 < 4)
         {
-			score = getLiteralScore(p2point2, p1point2);
+			score = getLiteralScore(p1point2, p2point2);
         }
-		return score;
-	}
-
-	private String getLiteralScore(int p2point2, int p1point2) {
-		String score;
-		P2res = getLiteral(p2point2);
-		P1res = getLiteral(p1point2);
-		score = P1res + "-" + P2res;
 		return score;
 	}
 
@@ -96,6 +88,14 @@ public class TennisGame2 implements TennisGame
         {
 			score = getLiteralScore(P1point, P2point);
         }
+		return score;
+	}
+	
+	private String getLiteralScore(int p1point2, int p2point2) {
+		String score;
+		P2res = getLiteral(p2point2);
+		P1res = getLiteral(p1point2);
+		score = P1res + "-" + P2res;
 		return score;
 	}
 
