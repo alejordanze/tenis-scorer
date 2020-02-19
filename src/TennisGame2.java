@@ -34,14 +34,8 @@ public class TennisGame2 implements TennisGame
 	private String normal3(String score) {
 		if (P2point>P1point && P2point < 4)
         {
-            if (P2point==2)
-                P2res="Thirty";
-            if (P2point==3)
-                P2res="Forty";
-            if (P1point==1)
-                P1res="Fifteen";
-            if (P1point==2)
-                P1res="Thirty";
+			P1res = getLiteral(P1point);
+            P2res = getLiteral(P2point);
             score = P1res + "-" + P2res;
         }
 		return score;
@@ -50,14 +44,8 @@ public class TennisGame2 implements TennisGame
 	private String normal2(String score) {
 		if (P1point>P2point && P1point < 4)
         {
-            if (P1point==2)
-                P1res="Thirty";
-            if (P1point==3)
-                P1res="Forty";
-            if (P2point==1)
-                P2res="Fifteen";
-            if (P2point==2)
-                P2res="Thirty";
+            P1res = getLiteral(P1point);
+            P2res = getLiteral(P2point);
             score = P1res + "-" + P2res;
         }
 		return score;
