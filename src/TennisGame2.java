@@ -3,14 +3,13 @@ public class TennisGame2 implements TennisGame
 {
     public int player1Points = 0;
     public int player2Points = 0;
-    
     private String player1Name;
     private String player2Name;
-
     final int _LOVE = 0;
     final int _FIFTEEN = 1;
     final int _THIRTY = 2;
     final int _FORTY = 3;
+    
     public TennisGame2(String player1Name, String player2Name) {
         this.player1Name = player1Name;
         this.player2Name = player2Name;
@@ -45,15 +44,15 @@ public class TennisGame2 implements TennisGame
 		return player1Points != player2Points;
 	}
 
-	private String getLiteral(int p1point2) {
+	private String getLiteral(int playerPoints) {
 		String literal = "";
-		if (p1point2 == _LOVE)
+		if (playerPoints == _LOVE)
 		    literal = "Love";
-		if (p1point2 == _FIFTEEN)
+		if (playerPoints == _FIFTEEN)
 		    literal = "Fifteen";
-		if (p1point2 == _THIRTY)
+		if (playerPoints == _THIRTY)
 		    literal = "Thirty";
-		if (p1point2 == _FORTY)
+		if (playerPoints == _FORTY)
 		    literal = "Forty";
 		return literal;
 	}
