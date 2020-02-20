@@ -65,7 +65,7 @@ public class TennisGame2 implements TennisGame
 	}
 
 	private String advantage(String score) {
-		if (player1Points > player2Points && player2Points >= 3)
+		if (isInAdvantage())
         {
             score = "Advantage player1";
         }
@@ -77,10 +77,8 @@ public class TennisGame2 implements TennisGame
 		return score;
 	}
 
-	private String deuce(String score) {
-		if (isDeuce())
-            score = "Deuce";
-		return score;
+	private boolean isInAdvantage() {
+		return player1Points > player2Points && player2Points >= 3;
 	}
 
 	private boolean isDeuce() {
