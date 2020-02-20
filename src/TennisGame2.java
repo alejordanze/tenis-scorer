@@ -22,7 +22,10 @@ public class TennisGame2 implements TennisGame
             score = getLiteral(player1Points) + "-All";
 		if (isDeuce())
             score = "Deuce";
-        score = advantage(score);       
+		if (isInAdvantage(player1Points, player2Points))
+            score = "Advantage player1";
+        if (isInAdvantage(player2Points, player1Points))
+            score = "Advantage player2";    
         score = win(score);
         return score;
     }
@@ -70,7 +73,7 @@ public class TennisGame2 implements TennisGame
             score = "Advantage player1";
         }
         
-        if (player2Points > player1Points && player1Points >= 3)
+        if (isInAdvantage(player2Points, player1Points))
         {
             score = "Advantage player2";
         }
