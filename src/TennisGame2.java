@@ -32,13 +32,15 @@ public class TennisGame2 implements TennisGame
 
 	private String normal() {
 		String score = "";
-		if (player1Points != player2Points)
+		if (isNormal())
         {
-            player1Result = getLiteral(player1Points);
-            player2Result = getLiteral(player2Points);
-            score = player1Result + "-" + player2Result;
+            score = getLiteral(player1Points) + "-" + getLiteral(player2Points);
         }
 		return score;
+	}
+
+	private boolean isNormal() {
+		return player1Points != player2Points;
 	}
 
 	private String getLiteral(int p1point2) {
