@@ -20,46 +20,12 @@ public class TennisGame2 implements TennisGame
         score = deuce(score);
         
         score = normal(score);
-        score = normal1(score);
-        
-        score = normal2(score);
-        score = normal3(score);
         
         score = advantage(score);
         
         score = win(score);
         return score;
     }
-
-	private String normal3(String score) {
-		if (player2Points != player1Points)
-        {
-			player1Result = getLiteral(player1Points);
-            player2Result = getLiteral(player2Points);
-            score = player1Result + "-" + player2Result;
-        }
-		return score;
-	}
-
-	private String normal2(String score) {
-		if (player1Points != player2Points)
-        {
-            player1Result = getLiteral(player1Points);
-            player2Result = getLiteral(player2Points);
-            score = player1Result + "-" + player2Result;
-        }
-		return score;
-	}
-
-	private String normal1(String score) {
-		if (player2Points != player1Points)
-        {
-			player1Result = getLiteral(player1Points);
-            player2Result = getLiteral(player2Points);
-            score = player1Result + "-" + player2Result;
-        }
-		return score;
-	}
 
 	private String normal(String score) {
 		if (player1Points != player2Points)
